@@ -1,32 +1,37 @@
 import sys
-sys.stdout.reconfigure(encoding='utf-8')
 import requests
+sys.stdout.reconfigure(encoding='utf-8')
 
+TOKEN = "7802830207:AAHa6BmDoeIWtoFNCAB0S_ZWxEvftpY2GaU"
 
-TOKEN = ""
-
-
-def send_reaction(chat_id, message_id, reaction):
+def send_reaction(chat_id, message_id, reactions):
     url = f"https://api.telegram.org/bot{TOKEN}/setMessageReaction"
     payload = {
         "chat_id": chat_id,
         "message_id": message_id,
-        "reaction": [{"type": "emoji", "emoji": reaction}]  
+        "reaction": [{"type": "emoji", "emoji": reaction} for reaction in reactions] 
     }
     response = requests.post(url, json=payload)
     if response.status_code == 200:
-        print("✅ تم إضافة رد الفعل بنجاح!")
+        print(" تم إضافة ردود الفعل بنجاح!")
     else:
-        print(f"❌ حدث خطأ: {response.text}")
+        print(f" حدث خطأ: {response.text}")
 
 
 def handle_message(update):
- 
-    chat_id = update["message"]["chat"]["id"]
-    message_id = update["message"]["message_id"]
-    
-    # إضافة رد فعل (قلب ❤️)
-    send_reaction(chat_id, message_id, "❤️")
+  
+    if "message" in update:
+        chat_id = update["message"]["chat"]["id"]
+        message_id = update["message"]["message_id"]
+        reactions = ["❤️"]
+        send_reaction(chat_id, message_id, reactions)
+    elif "channel_post" in update:
+        chat_id = update["channel_post"]["chat"]["id"]
+        message_id = update["channel_post"]["message_id"]
+        reactions = ["❤️"]
+        send_reaction(chat_id, message_id, reactions)
+    else:
+        print("لا توجد رسالة أو منشور في هذا التحديث.")
 
 
 def get_updates():
@@ -41,8 +46,8 @@ def get_updates():
                 handle_message(update)
                 offset = update["update_id"] + 1
         else:
-            print(f"❌ حدث خطأ: {response.text}")
+            print(f" حدث خطأ: {response.text}")
 
-# تشغيل البوت
-print("✅ البوت يعمل الآن...")
+
+print(" البوت يعمل الآن...")
 get_updates()

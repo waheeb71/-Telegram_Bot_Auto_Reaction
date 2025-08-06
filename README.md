@@ -60,11 +60,14 @@ send_reaction(chat_id, message_id, "❤️")  # يمكنك تغيير "❤️" �
 
 للأسئلة أو الدعم، يرجى التواصل معي عبر:
 
-- **تليجرام:** [@SyberSc71](https://t.me/SyberSc71)
-- **تليجرام:** [@WAT4F](https://t.me/WAT4F)
-- **جيت هاب:** [waheeb71](https://github.com/waheeb71)
+- تليجرام: [@SyberSc71](https://t.me/SyberSc71)
+- تليجرام: [@WAT4F](https://t.me/WAT4F)
+- جيت هاب: [waheeb71](https://github.com/waheeb71)
+- جيب هاب2:[cyberlangdev](https://github.com/cyberlangdev)
 - **قناة اليوتيوب:** [Cyber Code](https://www.youtube.com/@cyber_code1)
-- **حسابي على منصة إكس (تويتر سابقًا):** [@SyberSc](https://x.com/SyberSc)
+- **حسابي على منصة إكس (تويتر سابقًا):** [@wa__cys](https://x.com/wa__cys)
+
+
 
 ---
 
